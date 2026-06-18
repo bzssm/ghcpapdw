@@ -1,0 +1,102 @@
+{
+  "agents": {
+    "lead_architect": {
+      "persistent_name": "lead_architect",
+      "universe": "descriptive",
+      "created_at": "2026-05-13T06:07:26Z",
+      "legacy_named": true,
+      "status": "active"
+    },
+    "legacy_frontend": {
+      "persistent_name": "legacy_frontend",
+      "universe": "descriptive",
+      "created_at": "2026-05-13T06:07:26Z",
+      "legacy_named": true,
+      "status": "active"
+    },
+    "expert_webforms": {
+      "persistent_name": "expert_webforms",
+      "universe": "descriptive",
+      "created_at": "2026-05-13T06:07:26Z",
+      "legacy_named": true,
+      "status": "active"
+    },
+    "expert_dotnet_services": {
+      "persistent_name": "expert_dotnet_services",
+      "universe": "descriptive",
+      "created_at": "2026-05-13T06:07:26Z",
+      "legacy_named": true,
+      "status": "active"
+    },
+    "expert_struts": {
+      "persistent_name": "expert_struts",
+      "universe": "descriptive",
+      "created_at": "2026-05-13T06:07:26Z",
+      "legacy_named": true,
+      "status": "active"
+    },
+    "expert_java_services": {
+      "persistent_name": "expert_java_services",
+      "universe": "descriptive",
+      "created_at": "2026-05-13T06:07:26Z",
+      "legacy_named": true,
+      "status": "active"
+    },
+    "expert_database": {
+      "persistent_name": "expert_database",
+      "universe": "descriptive",
+      "created_at": "2026-05-13T06:07:26Z",
+      "legacy_named": true,
+      "status": "active"
+    },
+    "expert_docker": {
+      "persistent_name": "expert_docker",
+      "universe": "descriptive",
+      "created_at": "2026-05-13T06:07:26Z",
+      "legacy_named": true,
+      "status": "active"
+    },
+    "expert_messaging": {
+      "persistent_name": "expert_messaging",
+      "universe": "descriptive",
+      "created_at": "2026-05-13T06:07:26Z",
+      "legacy_named": true,
+      "status": "active"
+    },
+    "qa_integration": {
+      "persistent_name": "qa_integration",
+      "universe": "descriptive",
+      "created_at": "2026-05-13T06:07:26Z",
+      "legacy_named": true,
+      "status": "active"
+    },
+    "expert_docs": {
+      "persistent_name": "expert_docs",
+      "universe": "descriptive",
+      "created_at": "2026-05-13T06:19:20Z",
+      "legacy_named": true,
+      "status": "active"
+    },
+    "expert_mermaid": {
+      "persistent_name": "expert_mermaid",
+      "universe": "descriptive",
+      "created_at": "2026-05-13T06:19:20Z",
+      "legacy_named": true,
+      "status": "active"
+    },
+    "expert_git": {
+      "persistent_name": "expert_git",
+      "universe": "descriptive",
+      "created_at": "2026-05-13T06:19:20Z",
+      "legacy_named": true,
+      "status": "active"
+    },
+    "expert_github": {
+      "persistent_name": "expert_github",
+      "universe": "descriptive",
+      "created_at": "2026-05-13T06:19:20Z",
+      "legacy_named": true,
+      "status": "active"
+    }
+  }
+}

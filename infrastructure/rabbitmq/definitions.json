@@ -1,0 +1,400 @@
+{
+  "rabbit_version": "3.12.0",
+  "users": [
+    {
+      "name": "guest",
+      "password_hash": "guest",
+      "hashing_algorithm": "rabbit_password_hashing_sha256",
+      "tags": "administrator"
+    },
+    {
+      "name": "zava_app",
+      "password_hash": "zava_pass",
+      "hashing_algorithm": "rabbit_password_hashing_sha256",
+      "tags": ""
+    }
+  ],
+  "vhosts": [
+    { "name": "/" },
+    { "name": "/zavabank" }
+  ],
+  "permissions": [
+    {
+      "user": "guest",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    },
+    {
+      "user": "guest",
+      "vhost": "/zavabank",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    },
+    {
+      "user": "zava_app",
+      "vhost": "/zavabank",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+  "parameters": [],
+  "global_parameters": [],
+  "policies": [],
+  "exchanges": [
+    {
+      "name": "zava.loans",
+      "vhost": "/zavabank",
+      "type": "topic",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "zava.payments",
+      "vhost": "/zavabank",
+      "type": "topic",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "zava.fraud",
+      "vhost": "/zavabank",
+      "type": "topic",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "zava.notifications",
+      "vhost": "/zavabank",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "zava.compliance",
+      "vhost": "/zavabank",
+      "type": "direct",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "zava.statements",
+      "vhost": "/zavabank",
+      "type": "direct",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "zava.accounts",
+      "vhost": "/zavabank",
+      "type": "topic",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "zava.dlx",
+      "vhost": "/zavabank",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    }
+  ],
+  "queues": [
+    {
+      "name": "q.loan.riskscore",
+      "vhost": "/zavabank",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "zava.dlx",
+        "x-message-ttl": 86400000
+      }
+    },
+    {
+      "name": "q.loan.decision",
+      "vhost": "/zavabank",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "zava.dlx",
+        "x-message-ttl": 86400000
+      }
+    },
+    {
+      "name": "q.loan.notification",
+      "vhost": "/zavabank",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "zava.dlx",
+        "x-message-ttl": 86400000
+      }
+    },
+    {
+      "name": "q.payment.posted",
+      "vhost": "/zavabank",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "zava.dlx",
+        "x-message-ttl": 86400000
+      }
+    },
+    {
+      "name": "q.payment.statement",
+      "vhost": "/zavabank",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "zava.dlx",
+        "x-message-ttl": 86400000
+      }
+    },
+    {
+      "name": "q.payment.failed",
+      "vhost": "/zavabank",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "zava.dlx",
+        "x-message-ttl": 86400000
+      }
+    },
+    {
+      "name": "q.fraud.compliance",
+      "vhost": "/zavabank",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "zava.dlx",
+        "x-message-ttl": 86400000
+      }
+    },
+    {
+      "name": "q.fraud.audit",
+      "vhost": "/zavabank",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "zava.dlx",
+        "x-message-ttl": 86400000
+      }
+    },
+    {
+      "name": "q.notify.email",
+      "vhost": "/zavabank",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "zava.dlx",
+        "x-message-ttl": 86400000
+      }
+    },
+    {
+      "name": "q.notify.audit",
+      "vhost": "/zavabank",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "zava.dlx",
+        "x-message-ttl": 86400000
+      }
+    },
+    {
+      "name": "q.compliance.daily",
+      "vhost": "/zavabank",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "zava.dlx",
+        "x-message-ttl": 86400000
+      }
+    },
+    {
+      "name": "q.compliance.monthly",
+      "vhost": "/zavabank",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "zava.dlx",
+        "x-message-ttl": 86400000
+      }
+    },
+    {
+      "name": "q.statement.generate",
+      "vhost": "/zavabank",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "zava.dlx",
+        "x-message-ttl": 86400000
+      }
+    },
+    {
+      "name": "q.account.alerts",
+      "vhost": "/zavabank",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "zava.dlx",
+        "x-message-ttl": 86400000
+      }
+    },
+    {
+      "name": "q.deadletter",
+      "vhost": "/zavabank",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    }
+  ],
+  "bindings": [
+    {
+      "source": "zava.loans",
+      "vhost": "/zavabank",
+      "destination": "q.loan.riskscore",
+      "destination_type": "queue",
+      "routing_key": "loan.submitted",
+      "arguments": {}
+    },
+    {
+      "source": "zava.loans",
+      "vhost": "/zavabank",
+      "destination": "q.loan.decision",
+      "destination_type": "queue",
+      "routing_key": "loan.scored",
+      "arguments": {}
+    },
+    {
+      "source": "zava.loans",
+      "vhost": "/zavabank",
+      "destination": "q.loan.notification",
+      "destination_type": "queue",
+      "routing_key": "loan.approved",
+      "arguments": {}
+    },
+    {
+      "source": "zava.loans",
+      "vhost": "/zavabank",
+      "destination": "q.loan.notification",
+      "destination_type": "queue",
+      "routing_key": "loan.denied",
+      "arguments": {}
+    },
+    {
+      "source": "zava.payments",
+      "vhost": "/zavabank",
+      "destination": "q.payment.posted",
+      "destination_type": "queue",
+      "routing_key": "payment.processed",
+      "arguments": {}
+    },
+    {
+      "source": "zava.payments",
+      "vhost": "/zavabank",
+      "destination": "q.payment.statement",
+      "destination_type": "queue",
+      "routing_key": "payment.processed",
+      "arguments": {}
+    },
+    {
+      "source": "zava.payments",
+      "vhost": "/zavabank",
+      "destination": "q.payment.failed",
+      "destination_type": "queue",
+      "routing_key": "payment.failed",
+      "arguments": {}
+    },
+    {
+      "source": "zava.fraud",
+      "vhost": "/zavabank",
+      "destination": "q.fraud.compliance",
+      "destination_type": "queue",
+      "routing_key": "fraud.alert",
+      "arguments": {}
+    },
+    {
+      "source": "zava.fraud",
+      "vhost": "/zavabank",
+      "destination": "q.fraud.audit",
+      "destination_type": "queue",
+      "routing_key": "fraud.*",
+      "arguments": {}
+    },
+    {
+      "source": "zava.notifications",
+      "vhost": "/zavabank",
+      "destination": "q.notify.email",
+      "destination_type": "queue",
+      "routing_key": "",
+      "arguments": {}
+    },
+    {
+      "source": "zava.notifications",
+      "vhost": "/zavabank",
+      "destination": "q.notify.audit",
+      "destination_type": "queue",
+      "routing_key": "",
+      "arguments": {}
+    },
+    {
+      "source": "zava.compliance",
+      "vhost": "/zavabank",
+      "destination": "q.compliance.daily",
+      "destination_type": "queue",
+      "routing_key": "report.daily",
+      "arguments": {}
+    },
+    {
+      "source": "zava.compliance",
+      "vhost": "/zavabank",
+      "destination": "q.compliance.monthly",
+      "destination_type": "queue",
+      "routing_key": "report.monthly",
+      "arguments": {}
+    },
+    {
+      "source": "zava.statements",
+      "vhost": "/zavabank",
+      "destination": "q.statement.generate",
+      "destination_type": "queue",
+      "routing_key": "statement.generate",
+      "arguments": {}
+    },
+    {
+      "source": "zava.accounts",
+      "vhost": "/zavabank",
+      "destination": "q.account.alerts",
+      "destination_type": "queue",
+      "routing_key": "account.alert",
+      "arguments": {}
+    },
+    {
+      "source": "zava.dlx",
+      "vhost": "/zavabank",
+      "destination": "q.deadletter",
+      "destination_type": "queue",
+      "routing_key": "",
+      "arguments": {}
+    }
+  ]
+}
